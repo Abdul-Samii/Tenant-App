@@ -1,5 +1,7 @@
 import { useEffect, useState, useContext } from 'react';
 import { ThemeContext } from './ThemeContext';
+import Banner from './Banner';
+
 interface Forecast {
     date: string;
     temperatureC: number;
@@ -58,6 +60,8 @@ function App() {
 
   return (
     <div className={theme?.app}>
+      <Banner />
+      <p>Upload Favicon:</p>
       <input type="file" accept=".ico,.png,.svg" onChange={handleFaviconUpload} />
       <h1 id="tabelLabel">Weather forecast</h1>
       <p>This component demonstrates fetching data from the server.</p>
