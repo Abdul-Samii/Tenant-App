@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from 'react';
 import { ThemeContext } from './ThemeContext';
-//import theme1Styles from './themes/theme1.module.scss';
-//import theme2Styles from './themes/theme2.module.scss';
+import Banner from './Banner';
+
 interface Forecast {
     date: string;
     temperatureC: number;
@@ -9,25 +9,11 @@ interface Forecast {
     summary: string;
 }
 
-//interface ThemeI {
-  //app: string
-//}
 function App() {
   const [forecasts, setForecasts] = useState<Forecast[]>();
-  //const [theme, setTheme] = useState<ThemeI>();
-
-  //will handle the domains in next branch
-  //const domainToThemeMap: any = {
-    //'foo.com': theme1Styles,
-    //'localhost': theme2Styles,
-  //};
 
   useEffect(() => {
     populateWeatherData();
-    //const domainName = window.location.hostname;
-    //const ctheme = domainToThemeMap[domainName];
-    //console.log('domain - ', ctheme.app)
-    //setTheme(ctheme || 'defaultTheme');
   }, []);
 
   const { theme } = useContext(ThemeContext);
@@ -56,6 +42,7 @@ function App() {
 
   return (
     <div className={theme?.app}>
+      <Banner />
       <h1 id="tabelLabel">Weather forecast</h1>
       <p>This component demonstrates fetching data from the server.</p>
       {contents}
